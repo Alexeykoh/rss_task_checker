@@ -21,7 +21,7 @@ check.addEventListener('click', function (){
 	})
 	check.innerHTML = "check / score: "+score
 	//
-	window.scrollTo(0, document.body.scrollHeight);
+	window.scrollTo(0, document.body.scrollHeight)
 })
 
 function removeDescriptions () {
@@ -30,3 +30,10 @@ function removeDescriptions () {
 		elements.remove()
 	})
 }
+
+document.querySelector('.header__tittle').addEventListener('click', function (){
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth"
+	});
+})
