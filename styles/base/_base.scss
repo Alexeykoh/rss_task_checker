@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+//font-family: 'Comfortaa', cursive;
+//
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+//font-family: 'Kdam Thmor Pro', sans-serif;
+//
+*,
+*::after,
+*::before {
+	margin  : 0;
+	padding : 0;
+}
+
+html {
+	background-color : white;
+	font-family      : "Comfortaa", cursive;
+	transition       : .5s;
+}
+
+body {
+	box-sizing : border-box;
+}
+
+a {
+	text-decoration : none;
+}
+
+ol, ul {
+	list-style : none;
+}
+
+button {
+	cursor           : pointer;
+	background-color : var(--btn_color);
+}
+
+img, svg {
+	max-width : 100%;
+	height    : auto;
+}
+
+// hidden elements
+.hidden {
+	display : none;
+}
+
+// container
+.container {
+	max-width     : 1440px;
+	padding-left  : 120px;
+	padding-right : 120px;
+	margin        : 0 auto;
+	//
+	@include media-laptop {
+		padding-left  : calc(120px / 2);
+		padding-right : calc(120px / 2);
+	}
+	@include media-tablet {
+		padding-left  : calc(120px / 4);
+		padding-right : calc(120px / 4);
+	}
+	@include media-mobile {
+		padding-left  : calc(120px / 6);
+		padding-right : calc(120px / 6);
+	}
+	@include media-mobile-small {
+		padding-left  : calc(120px / 12);
+		padding-right : calc(120px / 12);
+	}
+}
+
+
+h1, h2, h3, h4, p, li, a, .nav__link {
+	padding : 0;
+	margin  : 0;
+	color   : var(--text-color);
+}
+
+h2 {
+	//font-size : 3.5rem;
+	@include adaptive-font(56, 32)
+}
+
+

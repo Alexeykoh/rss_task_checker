@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: white;
+  font-family: "Comfortaa", cursive;
+  transition: 0.5s;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--btn_color);
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  max-width: 1440px;
+  padding-left: 120px;
+  padding-right: 120px;
+  margin: 0 auto;
+}
+@media (max-width: 1279px) {
+  .container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media (max-width: 424px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 319px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+h1, h2, h3, h4, p, li, a, .nav__link {
+  padding: 0;
+  margin: 0;
+  color: var(--text-color);
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: calc(32px + 40.8 * ((100vw - 320px) / 1280));
+  }
+}
+@media (min-width: 767px) {
+  h2 {
+    font-size: calc(32px + 24 * (100vw / 1280));
+  }
+}
+
+main section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 50px;
+}
+@media (max-width: 424px) {
+  main section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+h2 {
+  margin-bottom: 50px;
+}
+
+h3 {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+ol, ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+  box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  border: 2px solid #555555;
+  border-radius: 3px;
+  background-color: white;
+}
+
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 2px;
+  left: 6px;
+}
+
+form {
+  max-width: 300px;
+}
+
+@media (max-width: 767px) {
+  label {
+    font-size: calc(12px + 6.8 * ((100vw - 320px) / 1280));
+  }
+}
+@media (min-width: 767px) {
+  label {
+    font-size: calc(12px + 4 * (100vw / 1280));
+  }
+}
+
+ol li form {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+ol li form label {
+  box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
+  width: 280px;
+  background: cornsilk;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+ul {
+  margin-bottom: 10px;
+  border-left: solid;
+  border-width: 1px;
+}
+ul li {
+  margin-left: 10px;
+}
+ul li form {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  margin: 8px;
+}
+ul li form label {
+  width: 280px;
+  background: cornsilk;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: wheat;
+  overflow: hidden;
+  z-index: 100;
+}
+
+button.submit__button {
+  background: burlywood;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 200px;
+  position: fixed;
+  bottom: 3%;
+  right: 4%;
+  animation: submit__button 1s ease-in-out infinite;
+  transition: 0.4s;
+}
+
+@keyframes submit__button {
+  0% {
+    bottom: 3%;
+  }
+  50% {
+    bottom: 4%;
+  }
+  100% {
+    bottom: 3%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
