@@ -1,7 +1,7 @@
 main {
 	section {
-		padding-top    : 100px;
-		padding-bottom : 100px;
+		//padding-top    : 100px;
+		//padding-bottom : 100px;
 		@include media-mobile {
 			padding-top    : 60px;
 			padding-bottom : 60px;
@@ -14,9 +14,11 @@ main {
 		margin-bottom : 50px;
 	}
 }
-
 h2{
 	margin-bottom : 50px;
+}
+.tittle{
+	margin-top : 100px;
 }
 h3{
 	margin-top : 25px;
@@ -107,4 +109,18 @@ ul{
 			}
 		}
 	}
+}
+.description{
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 6px;
+	padding : 10px;
+	border: solid;
+}
+
+.paragraph{
+	padding : 0;
+	margin : 0;
+	font-size: 0.9rem;
 }
