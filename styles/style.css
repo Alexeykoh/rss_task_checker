@@ -224,7 +224,7 @@ ul li form label {
     position: relative;
     top: unset;
     right: unset;
-    width: 320px;
+    max-width: 320px;
   }
 }
 
@@ -241,6 +241,27 @@ ul li form label {
   flex-direction: column;
   justify-content: center;
 }
+.selector__inner .img__arrow {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 30px;
+  animation: img__arrow 1s ease-in-out infinite;
+}
+@keyframes img__arrow {
+  0% {
+    right: 0;
+  }
+  50% {
+    right: 2%;
+  }
+  100% {
+    right: 0;
+  }
+}
+.selector__inner .selector__label {
+  position: relative;
+}
 .selector__inner .selector {
   padding: 10px 20px;
   border-radius: 10px;
@@ -249,7 +270,7 @@ ul li form label {
   border: slateblue solid 3px;
   -moz-appearance: none;
   -webkit-appearance: none;
-  appearance: auto;
+  appearance: none;
 }
 
 .checked {
@@ -311,12 +332,13 @@ header {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: wheat;
+  background-color: rgba(95, 61, 220, 0.8);
   overflow: hidden;
   z-index: 100;
 }
 
 button.submit__button {
+  display: none;
   z-index: 1000;
   background: burlywood;
   font-size: 1.1rem;
@@ -328,6 +350,10 @@ button.submit__button {
   right: 5%;
   animation: submit__button 1s ease-in-out infinite;
   transition: 0.4s;
+}
+
+.submit__button.active {
+  display: block;
 }
 
 @keyframes submit__button {

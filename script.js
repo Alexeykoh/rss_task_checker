@@ -135,6 +135,8 @@ function loadBases (value) {
 
 			}
 			//
+			document.querySelector('.submit__button').classList.add('active')
+			//
 			const inputs = document.querySelectorAll('input');
 			const description = document.querySelector('.description')
 			inputs.forEach(function (elem){
@@ -144,7 +146,7 @@ function loadBases (value) {
 					console.log (`img-id${getID}`)
 					const done = document.getElementById(  `img-id${getID}`)
 					if (this.checked){
-						labelCont.classList.add('checked')
+						labelCont.classList.add('checked') //not-active
 						done.classList.add('active')
 					} else{
 						labelCont.classList.remove('checked')
@@ -168,12 +170,12 @@ function loadBases (value) {
 						score = score + elements.value*1
 						description__p.innerHTML += '- ' + text.innerHTML + ' +' + elements.value + '<br>';
 					} else {
-						description__p.innerHTML += '<span class="red">Не выполнено </span> - ' + text.innerHTML + ' +' + elements.value + '<br>';
+						description__p.innerHTML += '<span class="red">[ Не выполнено ] </span> - ' + text.innerHTML + ' +' + elements.value + '<br>';
 					}
 				})
 				check.innerHTML = "check / score: "+score
 				//
-				window.scrollTo(0, document.body.scrollHeight)
+				window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
 			})
 		}
 	}

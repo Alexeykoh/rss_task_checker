@@ -127,10 +127,10 @@ ul {
 
 .description {
 	@include media-laptop {
-		position : relative;
-		top      : unset;
-		right    : unset;
-		width    : 320px;
+		position  : relative;
+		top       : unset;
+		right     : unset;
+		max-width : 320px;
 	}
 	transition     : 1s;
 	position       : fixed;
@@ -162,6 +162,30 @@ ul {
 	flex-direction  : column;
 	justify-content : center;
 	//
+	.img__arrow {
+		position  : absolute;
+		right     : 0;
+		top       : 10px;
+		width     : 30px;
+		//
+		animation : img__arrow 1s ease-in-out infinite;
+		@keyframes img__arrow {
+			0% {
+				right     : 0;
+			}
+			50% {
+				right     : 2%;
+			}
+			100% {
+				right     : 0;
+			}
+		}
+	}
+	
+	.selector__label {
+		position : relative;
+	}
+	
 	.selector {
 		padding            : 10px 20px;
 		border-radius      : 10px;
@@ -171,7 +195,7 @@ ul {
 		//background         : rgb(90, 211, 229);
 		-moz-appearance    : none;
 		-webkit-appearance : none;
-		appearance         : auto;
+		appearance         : none;
 		//background         : none;
 	}
 }
