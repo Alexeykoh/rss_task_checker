@@ -1,0 +1,12 @@
+[
+  {
+    "name": "master",
+    "src": "",
+    "default_volume": "1",
+    "type": "master",
+    "key": "none",
+    "keyText": "none",
+    "enable": true
+  }
+
+]
