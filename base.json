@@ -1,12 +1,166 @@
 [
   {
-    "name": "master",
-    "src": "",
-    "default_volume": "1",
-    "type": "master",
-    "key": "none",
-    "keyText": "none",
-    "enable": true
-  }
+    "list": "st_0_cv_3",
+    "description": "stage #0. CV#3",
+    "include": [
+      {
+        "description": "студент засабмитил в rs app ссылку на своё CV, задеплоенное на gh-pages",
+        "value": 10,
+        "include": false,
+        "arr": [
 
+        ]
+      },
+      {
+        "description": "вёрстка валидная",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      },
+      {
+        "description": "вёрстка семантическая",
+        "value": 0,
+        "include": true,
+        "arr": [
+          {
+            "description": "header, main, footer",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "элемент nav",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "только один заголовок h1",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "заголовки h2",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "description": "в footer есть ссылка на гитхаб автора работы, год создания приложения, логотип курса со ссылкой на курс. Если ссылка в футере ведёт на курс stage0, это не ошибка.",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      },
+      {
+        "description": "для оформления СV используются css-стили",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      },
+      {
+        "description": "при уменьшении масштаба страницы браузера вёрстка размещается по центру по горизонтали, а не сдвигается в сторону",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      },
+      {
+        "description": "на странице СV есть фото или аватарка автора, пропорции изображения не искажены, у изображения есть атрибут alt",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      },
+      {
+        "description": "навигация, контакты для связи и перечень навыков оформлены в виде списка ul > li или ul > li > a \nТакже допускается использование нумерованого списка ol > li или ol > li > a",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      },
+      {
+        "description": "Содержание CV ",
+        "value": 0,
+        "include": true,
+        "arr": [
+          {
+            "description": "краткя информацию о себе",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "контакты для связи",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "перечень навыков",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "пример кода. Код добавляется при помощи символов и тегов, а не картинкой ",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "перечень выполненных учебных проектов со ссылками на исходный код или страницу приложения",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          },
+          {
+            "description": "информацию об образовании и уровне английского",
+            "value": 5,
+            "include": false,
+            "arr": [
+
+            ]
+          }
+        ]
+      },
+      {
+        "description": "CV выполнено на английском языке",
+        "value": 10,
+        "include": false,
+        "arr": [
+
+        ]
+      }
+    ]
+  }
 ]

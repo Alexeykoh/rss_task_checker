@@ -6,121 +6,175 @@ main {
 			padding-top    : 60px;
 			padding-bottom : 60px;
 		}
-		display: flex;
-		flex-direction: column;
-		gap : 30px;
-		align-items: start;
+		display        : flex;
+		flex-direction : column;
+		gap            : 30px;
+		align-items    : start;
 		//
-		margin-bottom : 50px;
+		margin-bottom  : 50px;
 	}
 }
-h2{
+
+h2 {
 	margin-bottom : 50px;
 }
-.tittle{
+
+.tittle {
 	margin-top : 100px;
 }
-h3{
-	margin-top : 25px;
+
+h3 {
+	margin-top    : 25px;
 	margin-bottom : 15px;
 }
 
 ol, ul {
-	display : flex;
-	flex-direction: column;
-	gap : 20px;
+	display        : flex;
+	flex-direction : column;
+	gap            : 20px;
+	//
+	user-select    : none;
+}
+
+.test__item--label {
+	background : rgb(90, 211, 229); //
 }
 
 input[type=checkbox] {
-	position: relative;
-	cursor: pointer;
-	box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
+	display    : none;
+	position   : relative;
+	cursor     : pointer;
+	box-shadow : 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
 }
+
 input[type=checkbox]:before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 16px;
-	height: 16px;
-	top: 0;
-	left: 0;
-	border: 2px solid #555555;
-	border-radius: 3px;
-	background-color: white;
+	content          : "";
+	display          : block;
+	position         : absolute;
+	width            : 16px;
+	height           : 16px;
+	top              : 0;
+	left             : 0;
+	border           : 2px solid #555555;
+	border-radius    : 3px;
+	background-color : white;
 }
+
 input[type=checkbox]:checked:after {
-	content: "";
-	display: block;
-	width: 5px;
-	height: 10px;
-	border: solid black;
-	border-width: 0 2px 2px 0;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
-	position: absolute;
-	top: 2px;
-	left: 6px;
+	content           : "";
+	display           : block;
+	width             : 5px;
+	height            : 10px;
+	border            : solid black;
+	border-width      : 0 2px 2px 0;
+	-webkit-transform : rotate(45deg);
+	-ms-transform     : rotate(45deg);
+	transform         : rotate(45deg);
+	position          : absolute;
+	top               : 2px;
+	left              : 6px;
 }
 
-form{
-	max-width: 300px;
+form {
+	width           : 320px;
+	display         : flex;
+	align-items     : center;
+	justify-content : space-between;
 }
 
-label{
+
+label {
 	@include adaptive-font(16, 12);
+	width : 250px;
 }
 
-ol{
-	li{
+ol {
+	li {
 		//
-		form{
-			display: flex;
-			gap : 50px;
-			align-items: center;
-			label{
-				box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
-				width : 280px;
-				background: cornsilk;
-				padding : 10px;
-				border-radius: 10px;
+		form {
+			label {
+				box-shadow    : 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
+				background    : cornsilk;
+				padding       : 10px;
+				border-radius : 10px;
+				//
+				width         : 260px;
 			}
 		}
 	}
 }
 
-ul{
+ul {
 	margin-bottom : 10px;
-	border-left: solid;
-	border-width: 1px;
-	li{
+	border-left   : solid;
+	border-width  : 1px;
+	
+	li {
 		//
-		margin-left : 10px;
-		form{
-			display: flex;
-			gap : 50px;
-			align-items: center;
+		form {
 			margin : 8px;
-			label{
-				width : 280px;
-				background: cornsilk;
-				padding : 10px;
-				border-radius: 10px;
+			
+			label {
+				margin-left   : 10px;
+				background    : cornsilk;
+				padding       : 10px;
+				border-radius : 10px;
 			}
 		}
 	}
 }
-.description{
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	gap: 6px;
-	padding : 10px;
-	border: solid;
+
+.description {
+	@include media-laptop {
+		position : relative;
+		top      : unset;
+		right    : unset;
+		width    : 320px;
+	}
+	position       : fixed;
+	top            : 10%;
+	right          : 5%;
+	display        : flex;
+	flex-direction : column;
+	align-items    : start;
+	gap            : 6px;
+	padding        : 10px;
+	border         : solid;
+	width          : 600px;
+	margin-bottom  : 150px;
+	border-radius  : 10px;
+	//
+	box-shadow     : 8px 6px 3px #3c354a;
 }
 
-.paragraph{
-	padding : 0;
-	margin : 0;
-	font-size: 0.9rem;
+.paragraph {
+	padding   : 0;
+	margin    : 0;
+	font-size : 0.9rem;
+}
+
+.selector__inner {
+	display     : flex;
+	gap         : 20px;
+	align-items : start;
+	flex-direction: column;
+	justify-content: center;
+	//
+	.selector {
+		font-size          : 1.2rem;
+		display            : block;
+		border             : none;
+		-moz-appearance    : none;
+		-webkit-appearance : none;
+		appearance         : auto;
+		background         : none;
+	}
+}
+
+.checked {
+	border : slateblue solid 3px;
+}
+
+.red {
+	color : red;
 }

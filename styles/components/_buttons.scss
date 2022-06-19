@@ -1,4 +1,5 @@
 button.submit__button{
+	z-index : 1000;
 	background: burlywood;
 	font-size: 1.1rem;
 	border-radius: 10px;
@@ -7,7 +8,7 @@ button.submit__button{
 	//
 	position : fixed;
 	bottom : 3%;
-	right : 4%;
+	right : 5%;
 	//
 	animation     : submit__button 1s ease-in-out infinite;
 	//
@@ -22,5 +23,23 @@ button.submit__button{
 	}
 	100% {
 		bottom : 3%;
+	}
+}
+
+button.selector__btn{
+	background: burlywood;
+	font-size: 1.1rem;
+	border-radius: 10px;
+	padding : 10px 20px;
+	display: none;
+}
+button.selector__btn.active{
+ display: block;
+}
+
+.clipboard__btn{
+	transition: .1s;
+	&:hover{
+		transform: scale(1.2);
 	}
 }
