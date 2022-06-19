@@ -8,7 +8,7 @@ button.submit__button{
 	width : 200px;
 	//
 	position : fixed;
-	bottom : 3%;
+	bottom : 10%;
 	right : 5%;
 	//
 	animation     : submit__button 1s ease-in-out infinite;
@@ -20,13 +20,13 @@ button.submit__button{
 }
 @keyframes submit__button {
 	0% {
-		bottom : 3%;
+		bottom : 10%;
 	}
 	50% {
-		bottom : 4%;
+		bottom : 11%;
 	}
 	100% {
-		bottom : 3%;
+		bottom : 10%;
 	}
 }
 
@@ -35,7 +35,11 @@ button.selector__btn{
 	font-size: 1.1rem;
 	border-radius: 10px;
 	padding : 10px 20px;
+	width : 50%;
 	display: none;
+	&:hover{
+		transform: scale(1.05);
+	}
 }
 button.selector__btn.active{
  display: block;

@@ -36,6 +36,7 @@ function loadSelector(){
 
 const selector__btn = document.querySelector('.selector__btn')
 selector__btn.addEventListener('click', function (){
+	document.querySelector('.selected__task').innerHTML = selector.value
 	removeAll()
 	loadBases(selector.value)
 
@@ -87,7 +88,7 @@ function loadBases (value) {
 						labelSecond.classList.add (`test__item--label`);
 						labelSecond.classList.add (`ol`);
 						labelSecond.setAttribute ('for', `label_${i}_${k}`);
-						labelSecond.innerHTML = jsonData[a].include[i].arr[k].description
+						labelSecond.innerText = jsonData[a].include[i].arr[k].description
 						formSecond.appendChild (labelSecond);
 						//
 						const inputSecond = document.createElement ("input");
@@ -120,7 +121,7 @@ function loadBases (value) {
 					label.classList.add (`test__item--label`);
 					label.classList.add (`ul`);
 					label.setAttribute ('for', `label_${i}`);
-					label.innerHTML = jsonData[a].include[i].description
+					label.innerText = jsonData[a].include[i].description
 					form.appendChild (label);
 					//
 					const input = document.createElement ("input");

@@ -117,7 +117,7 @@ h3 {
 ol, ul {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   user-select: none;
 }
 
@@ -152,7 +152,6 @@ input[type=checkbox]:checked:after {
   height: 10px;
   border: solid black;
   border-width: 0 2px 2px 0;
-  -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   position: absolute;
@@ -169,6 +168,7 @@ form {
 
 label {
   width: 250px;
+  transition: 0.3s;
 }
 @media (max-width: 767px) {
   label {
@@ -180,7 +180,13 @@ label {
     font-size: calc(12px + 4 * (100vw / 1280));
   }
 }
+label:hover {
+  transform: scale(1.05);
+}
 
+ol {
+  margin-bottom: 100px;
+}
 ol li form label {
   box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
   background: cornsilk;
@@ -276,14 +282,14 @@ ul li form label {
 .checked {
   border: slateblue solid 3px;
   padding-top: 25px;
-  transition: 0.7s;
-  animation: popup__description 0.8s ease-in-out;
+  transition: 0.3s;
+  animation: popup__description 0.4s ease-in-out;
 }
 @keyframes popup__description {
   0% {
     padding-top: 0;
   }
-  35% {
+  55% {
     padding-top: 30px;
   }
   100% {
@@ -315,6 +321,7 @@ li {
 }
 
 .done.active {
+  z-index: 50;
   display: block;
   animation: done 0.4s ease-in-out;
 }
@@ -337,6 +344,43 @@ header {
   z-index: 100;
 }
 
+footer {
+  background-color: rebeccapurple;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+footer .footer__img {
+  width: 50px;
+  height: 50px;
+}
+footer .footer__inner {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+}
+footer .footer__inner #rss-ico {
+  overflow: hidden;
+  width: 90px;
+  height: 90px;
+}
+footer .footer__inner img {
+  filter: invert(1);
+}
+footer .footer__inner .footer__block {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  overflow: hidden;
+}
+footer .footer__inner .footer__block p {
+  font-size: 2rem;
+  font-family: "Kdam Thmor Pro", sans-serif;
+  color: white;
+}
+
 button.submit__button {
   display: none;
   z-index: 1000;
@@ -346,7 +390,7 @@ button.submit__button {
   padding: 10px 20px;
   width: 200px;
   position: fixed;
-  bottom: 3%;
+  bottom: 10%;
   right: 5%;
   animation: submit__button 1s ease-in-out infinite;
   transition: 0.4s;
@@ -358,13 +402,13 @@ button.submit__button {
 
 @keyframes submit__button {
   0% {
-    bottom: 3%;
+    bottom: 10%;
   }
   50% {
-    bottom: 4%;
+    bottom: 11%;
   }
   100% {
-    bottom: 3%;
+    bottom: 10%;
   }
 }
 button.selector__btn {
@@ -372,7 +416,11 @@ button.selector__btn {
   font-size: 1.1rem;
   border-radius: 10px;
   padding: 10px 20px;
+  width: 50%;
   display: none;
+}
+button.selector__btn:hover {
+  transform: scale(1.05);
 }
 
 button.selector__btn.active {
