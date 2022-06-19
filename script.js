@@ -74,8 +74,18 @@ function loadBases (value) {
 						formSecond.setAttribute ('action', "");
 						l1_second.appendChild (formSecond);
 						//
+
+						const doneSecond = document.createElement ("img");
+						doneSecond.classList.add (`done`);
+						doneSecond.setAttribute ('alt', "done-img");
+						doneSecond.setAttribute ('src', "assets/ico/done.svg");
+						doneSecond.setAttribute ('id', `img-id_${i}_${k}`);
+						formSecond.appendChild (doneSecond);
+
+						//
 						const labelSecond = document.createElement ("label");
 						labelSecond.classList.add (`test__item--label`);
+						labelSecond.classList.add (`ol`);
 						labelSecond.setAttribute ('for', `label_${i}_${k}`);
 						labelSecond.innerHTML = jsonData[a].include[i].arr[k].description
 						formSecond.appendChild (labelSecond);
@@ -97,8 +107,18 @@ function loadBases (value) {
 					form.setAttribute ('action', "");
 					l1_main.appendChild (form);
 					//
+
+					const done = document.createElement ("img");
+					done.classList.add (`done`);
+					done.setAttribute ('alt', "done-img");
+					done.setAttribute ('src', "assets/ico/done.svg");
+					done.setAttribute ('id', `img-id_${i}`);
+					form.appendChild (done);
+					//
+
 					const label = document.createElement ("label");
 					label.classList.add (`test__item--label`);
+					label.classList.add (`ul`);
 					label.setAttribute ('for', `label_${i}`);
 					label.innerHTML = jsonData[a].include[i].description
 					form.appendChild (label);
@@ -120,10 +140,15 @@ function loadBases (value) {
 			inputs.forEach(function (elem){
 				elem.addEventListener('click',function (kek){
 					const labelCont = document.getElementById(this.id).previousSibling
+					let getID = this.id.slice(5,this.id.length);
+					console.log (`img-id${getID}`)
+					const done = document.getElementById(  `img-id${getID}`)
 					if (this.checked){
 						labelCont.classList.add('checked')
+						done.classList.add('active')
 					} else{
 						labelCont.classList.remove('checked')
+						done.classList.remove('active')
 					}
 				})
 			})
