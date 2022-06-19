@@ -183,7 +183,9 @@ function loadBases (value) {
 				//
 				window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
 				//
+				clipReset()
 			})
+			clipReset()
 		}
 	}
 
@@ -218,7 +220,26 @@ document.querySelector('.header__tittle').addEventListener('click', function (){
 
 
 // clipboard
-document.querySelector('.clipboard__btn').addEventListener('click', function (){
+const clipBefore = document.getElementById('clip__before')
+const clipAfter = document.getElementById('clip__after')
+//
+const clip_btn = document.querySelector('.clipboard__btn');
+const  clip_p = document.querySelector('.clipboard__p');
+clip_btn.addEventListener('click', function (){
 	const description = document.getElementById('description__p')
 	navigator.clipboard.writeText(description.innerText)
+	//
+	if (description.innerText !== ""){
+		clip_p.innerText = 'скопирован'
+		//
+		clipBefore.classList.add('hidden')
+		clipAfter.classList.remove('hidden')
+	}
 })
+
+function clipReset (){
+	clip_p.innerText = 'скопировать'
+	//
+	clipBefore.classList.remove('hidden')
+	clipAfter.classList.add('hidden')
+}
