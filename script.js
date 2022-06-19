@@ -1,6 +1,9 @@
 //
 "use strict"
 
+// scroll to anchor
+
+
 let jsonData  = [];
 const fetchURL = 'base.json';
 const task = document.querySelector('ol.test__list')
@@ -43,6 +46,7 @@ selector__btn.addEventListener('click', function (){
 })
 
 function loadBases (value) {
+	document.querySelector('.test__list--img__arrow').classList.add('active')
 	for (let a = 0; a < jsonData.length; a++){
 		if(value === jsonData[a].list){
 
@@ -149,6 +153,7 @@ function loadBases (value) {
 					if (this.checked){
 						labelCont.classList.add('checked') //not-active
 						done.classList.add('active')
+						document.querySelector('.test__list--img__arrow').classList.remove('active')
 					} else{
 						labelCont.classList.remove('checked')
 						done.classList.remove('active')
@@ -177,6 +182,7 @@ function loadBases (value) {
 				check.innerHTML = "check / score: "+score
 				//
 				window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+				//
 			})
 		}
 	}
@@ -210,12 +216,9 @@ document.querySelector('.header__tittle').addEventListener('click', function (){
 	});
 })
 
+
+// clipboard
 document.querySelector('.clipboard__btn').addEventListener('click', function (){
 	const description = document.getElementById('description__p')
-	// let clipboardArr = [];
-	// description.forEach(function (elements){
-	// 	clipboardArr.push(elements.innerHTML+'\n')
-	// })
-	// console.log (clipboardArr)
 	navigator.clipboard.writeText(description.innerText)
 })
