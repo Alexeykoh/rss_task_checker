@@ -35,15 +35,24 @@ function loadSelector(){
 		selector.appendChild (option);
 	}
 	document.querySelector('.selector__btn').classList.add('active')
+	//
 }
 
 const selector__btn = document.querySelector('.selector__btn')
+
 selector__btn.addEventListener('click', function (){
+	loader()
+})
+//
+selector.addEventListener('change', function (a){
+	loader()
+});
+
+function loader () {
 	document.querySelector('.selected__task').innerHTML = selector.value
 	removeAll()
 	loadBases(selector.value)
-
-})
+}
 
 function loadBases (value) {
 	document.querySelector('.test__list--img__arrow').classList.add('active')
@@ -57,7 +66,6 @@ function loadBases (value) {
 				//
 
 				if(jsonData[a].include[i].include){
-					console.log (jsonData[a].include[i].arr)
 					//
 					const h3 = document.createElement ("h3");
 					h3.classList.add (`test__item--h3`);
@@ -148,8 +156,10 @@ function loadBases (value) {
 				elem.addEventListener('click',function (kek){
 					const labelCont = document.getElementById(this.id).previousSibling
 					let getID = this.id.slice(5,this.id.length);
-					console.log (`img-id${getID}`)
 					const done = document.getElementById(  `img-id${getID}`)
+					//
+					writeResult()
+					//
 					if (this.checked){
 						labelCont.classList.add('checked') //not-active
 						done.classList.add('active')
@@ -162,28 +172,9 @@ function loadBases (value) {
 			})
 
 			const check = document.querySelector('.submit__button')
+			check.addEventListener('click', writeResult)
 			check.addEventListener('click', function (){
-				//
-				let score = 0;
-				removeDescriptions();
-				//
-				inputs.forEach (function (elements) {
-
-					//
-					const description__p = document.getElementById('description__p')
-					let text = elements.previousSibling
-					if (elements.checked){
-						score = score + elements.value*1
-						description__p.innerHTML += '- ' + text.innerHTML + ' +' + elements.value + '<br>';
-					} else {
-						description__p.innerHTML += '<span class="red">[ Не выполнено ] </span> - ' + text.innerHTML + ' +' + elements.value + '<br>';
-					}
-				})
-				check.innerHTML = "check / score: "+score
-				//
 				window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-				//
-				clipReset()
 			})
 			clipReset()
 		}
@@ -194,8 +185,31 @@ function loadBases (value) {
 
 
 // ======  // ======  // ======  // ======  // ======  // ======  // ======  // ======
+function writeResult (){
+	//
+	let score = 0;
+	removeDescriptions();
+	//
+	const inputs = document.querySelectorAll('input');
+	inputs.forEach (function (elements) {
 
-
+		//
+		const description__p = document.getElementById('description__p')
+		let text = elements.previousSibling
+		if (elements.checked){
+			score = score + elements.value*1
+			description__p.innerHTML += '- ' + text.innerHTML + ' +' + elements.value + '<br>';
+		} else {
+			description__p.innerHTML += '<span class="red">[ Не выполнено ] </span> - ' + text.innerHTML + ' +' + elements.value + '<br>';
+		}
+	})
+	const check = document.querySelector('.submit__button')
+	check.innerHTML = "check / score: "+score
+	//
+	//
+	clipReset()
+}
+// ======  // ======  // ======  // ======  // ======  // ======  // ======  // ======
 
 
 function removeDescriptions () {
@@ -243,3 +257,4 @@ function clipReset (){
 	clipBefore.classList.remove('hidden')
 	clipAfter.classList.add('hidden')
 }
+
