@@ -1,4 +1,5 @@
 button.submit__button{
+	display: none;
 	z-index : 1000;
 	background: burlywood;
 	font-size: 1.1rem;
@@ -13,6 +14,9 @@ button.submit__button{
 	animation     : submit__button 1s ease-in-out infinite;
 	//
 	transition    : .4s;
+}
+.submit__button.active{
+	display: block;
 }
 @keyframes submit__button {
 	0% {
