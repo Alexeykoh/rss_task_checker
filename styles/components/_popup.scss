@@ -1,0 +1,58 @@
+.done {
+	display       : none;
+	position      : absolute;
+	top           : -15px;
+	left          : -20px;
+	width         : 20px;
+	padding       : 10px;
+	background    : slateblue;
+	border-radius : 100%;
+}
+
+.done.active {
+	z-index   : 50;
+	display   : block;
+	animation : done .4s ease-in-out;
+	
+}
+
+.checked {
+	border      : slateblue solid 3px;
+	padding-top : 20px;
+	//
+	transition  : .3s;
+	animation   : popup__description .2s ease-in-out;
+	
+}
+
+.selector__inner {
+	display         : flex;
+	gap             : 20px;
+	align-items     : start;
+	flex-direction  : column;
+	justify-content : center;
+	//
+	.img__arrow {
+		position  : absolute;
+		right     : 0;
+		top       : 10px;
+		width     : 30px;
+		//
+		animation : img__arrow 1s ease-in-out infinite;
+	}
+	
+	.selector__label {
+		position : relative;
+	}
+	
+	.selector {
+		padding            : 10px 20px;
+		border-radius      : 10px;
+		font-size          : 1.2rem;
+		display            : block;
+		border             : slateblue solid 3px;
+		-moz-appearance    : none;
+		-webkit-appearance : none;
+		appearance         : none;
+	}
+}
