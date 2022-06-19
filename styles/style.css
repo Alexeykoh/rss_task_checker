@@ -315,6 +315,10 @@ li {
   position: relative;
 }
 
+.click {
+  transition: 0.5s;
+}
+
 header {
   position: fixed;
   width: 100%;
