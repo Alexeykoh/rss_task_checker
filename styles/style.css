@@ -27,6 +27,17 @@
     right: 0;
   }
 }
+@keyframes click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 *,
 *::after,
 *::before {
@@ -212,6 +223,7 @@ ul li form label {
 }
 
 .description {
+  overflow: scroll;
   transition: 1s;
   position: fixed;
   top: 10%;
@@ -222,10 +234,27 @@ ul li form label {
   gap: 6px;
   padding: 10px;
   border: solid;
-  max-width: 600px;
+  max-width: 500px;
+  max-height: 70vh;
   margin-bottom: 150px;
   border-radius: 10px;
   box-shadow: 8px 6px 3px #3c354a;
+}
+@media (max-width: 767px) {
+  .description .click {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    padding: 10px;
+    background: burlywood;
+    border-radius: 10px;
+  }
+  .description .us-none {
+    display: none;
+  }
+  .description .clipboard__btn {
+    width: 30px;
+  }
 }
 @media (max-width: 1279px) {
   .description {
@@ -256,6 +285,19 @@ li {
 
 .test__item--label {
   border: rgba(255, 255, 255, 0.19) solid;
+}
+
+.test__list--img__arrow {
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 30px;
+  animation: click 1s ease-in-out infinite;
+  z-index: 20;
+}
+
+.test__list {
+  position: relative;
 }
 
 header {
@@ -307,18 +349,24 @@ footer .footer__inner .footer__block p {
 }
 
 button.submit__button {
+  box-shadow: 12px 8px 10px 2px rgba(34, 60, 80, 0.37);
   display: none;
   z-index: 1000;
   background: burlywood;
+  border: none;
   font-size: 1.1rem;
   border-radius: 10px;
-  padding: 10px 20px;
-  width: 200px;
+  padding: 15px 10px;
   position: fixed;
   bottom: 10%;
-  right: 5%;
+  left: 5%;
   animation: submit__button 1s ease-in-out infinite;
   transition: 0.4s;
+}
+@media (min-width: 620px) {
+  button.submit__button:hover {
+    transform: scale(1.05);
+  }
 }
 
 .submit__button.active {
@@ -328,12 +376,15 @@ button.submit__button {
 @keyframes submit__button {
   0% {
     bottom: 10%;
+    box-shadow: 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
   }
   50% {
     bottom: 11%;
+    box-shadow: 12px 8px 9px 2px rgba(34, 60, 80, 0.37);
   }
   100% {
     bottom: 10%;
+    box-shadow: 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
   }
 }
 button.selector__btn {

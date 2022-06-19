@@ -104,7 +104,7 @@
         "include": true,
         "arr": [
           {
-            "description": "краткя информацию о себе",
+            "description": "краткая информация о себе",
             "value": 5,
             "include": false,
             "arr": [

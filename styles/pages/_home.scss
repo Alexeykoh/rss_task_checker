@@ -45,34 +45,6 @@ input[type=checkbox] {
 	box-shadow : 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
-//input[type=checkbox]:before {
-//	content          : "";
-//	display          : block;
-//	position         : absolute;
-//	width            : 16px;
-//	height           : 16px;
-//	top              : 0;
-//	left             : 0;
-//	border           : 2px solid #555555;
-//	border-radius    : 3px;
-//	background-color : white;
-//}
-//
-//input[type=checkbox]:checked:after {
-//	content           : "";
-//	display           : block;
-//	width             : 5px;
-//	height            : 10px;
-//	border            : solid black;
-//	border-width      : 0 2px 2px 0;
-//	//-webkit-transform : rotate(45deg);
-//	-ms-transform     : rotate(45deg);
-//	transform         : rotate(45deg);
-//	position          : absolute;
-//	top               : 2px;
-//	left              : 6px;
-//}
-
 form {
 	display         : flex;
 	align-items     : center;
@@ -83,17 +55,18 @@ form {
 
 label {
 	@include adaptive-font(16, 12);
-	width : 250px;
-	transition: .3s;
+	width      : 250px;
+	transition : .3s;
 	@media (min-width : 620px) {
-		&:hover{
-			transform: scale(1.05);
+		&:hover {
+			transform : scale(1.05);
 		}
 	}
 }
 
 ol {
 	margin-bottom : 100px;
+	
 	li {
 		//
 		form {
@@ -130,12 +103,29 @@ ul {
 }
 
 .description {
+	@include media-tablet {
+		.click {
+			position      : fixed;
+			bottom        : 10%;
+			right         : 5%;
+			padding       : 10px;
+			background    : burlywood;
+			border-radius : 10px;
+		}
+		.us-none {
+			display : none;
+		}
+		.clipboard__btn {
+			width : 30px;
+		}
+	}
 	@include media-laptop {
 		position  : relative;
 		top       : unset;
 		right     : unset;
 		max-width : 320px;
 	}
+	overflow       : scroll;
 	transition     : 1s;
 	position       : fixed;
 	top            : 10%;
@@ -146,7 +136,8 @@ ul {
 	gap            : 6px;
 	padding        : 10px;
 	border         : solid;
-	max-width      : 600px;
+	max-width      : 500px;
+	max-height     : 70vh;
 	margin-bottom  : 150px;
 	border-radius  : 10px;
 	//
@@ -171,6 +162,21 @@ li {
 	position : relative;
 }
 
-.test__item--label{
-	border: rgba(255, 255, 255, 0.19) solid;
+.test__item--label {
+	border : rgba(255, 255, 255, 0.19) solid;
+}
+
+.test__list--img__arrow {
+	position  : absolute;
+	left     : -10px;
+	top       : -10px;
+	width     : 30px;
+	//
+	animation : click 1s ease-in-out infinite;
+	z-index: 20;
+}
+
+.test__list{
+	position : relative;
+	
 }
