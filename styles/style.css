@@ -198,7 +198,7 @@ label {
 }
 
 ol {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 ol li form label {
   box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
@@ -223,7 +223,7 @@ ul li form label {
 }
 
 .description {
-  overflow: scroll;
+  overflow: auto;
   transition: 1s;
   position: fixed;
   top: 10%;
@@ -231,7 +231,7 @@ ul li form label {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 6px;
+  gap: 16px;
   padding: 10px;
   border: solid;
   max-width: 500px;
@@ -239,6 +239,12 @@ ul li form label {
   margin-bottom: 150px;
   border-radius: 10px;
   box-shadow: 8px 6px 3px #3c354a;
+}
+.description .click {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid;
 }
 @media (max-width: 767px) {
   .description .click {
@@ -288,12 +294,21 @@ li {
 }
 
 .test__list--img__arrow {
+  display: none;
   position: absolute;
-  left: -10px;
-  top: -10px;
-  width: 30px;
+  left: -18px;
+  top: -18px;
+  width: 40px;
+  background: burlywood;
+  border: 2px;
+  padding: 3px;
+  border-radius: 100%;
   animation: click 1s ease-in-out infinite;
   z-index: 20;
+}
+
+.test__list--img__arrow.active {
+  display: block;
 }
 
 .test__list {
@@ -359,7 +374,8 @@ button.submit__button {
   padding: 15px 10px;
   position: fixed;
   bottom: 10%;
-  left: 5%;
+  left: auto;
+  right: auto;
   animation: submit__button 1s ease-in-out infinite;
   transition: 0.4s;
 }
@@ -424,7 +440,7 @@ button.selector__btn.active {
 .done.active {
   z-index: 50;
   display: block;
-  animation: done 0.4s ease-in-out;
+  animation: done 0.1s linear;
 }
 
 .checked {

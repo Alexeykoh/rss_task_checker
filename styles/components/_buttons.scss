@@ -17,7 +17,8 @@ button.submit__button {
 	//
 	position      : fixed;
 	bottom        : 10%;
-	left          : 5%;
+	left          : auto;
+	right          : auto;
 	//
 	animation     : submit__button 1s ease-in-out infinite;
 	//

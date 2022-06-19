@@ -65,7 +65,7 @@ label {
 }
 
 ol {
-	margin-bottom : 100px;
+	margin-bottom : 150px;
 	
 	li {
 		//
@@ -103,6 +103,13 @@ ul {
 }
 
 .description {
+	.click {
+		display       : flex;
+		align-items   : center;
+		gap           : 10px;
+		border-bottom : 2px solid;
+	}
+	
 	@include media-tablet {
 		.click {
 			position      : fixed;
@@ -125,7 +132,7 @@ ul {
 		right     : unset;
 		max-width : 320px;
 	}
-	overflow       : scroll;
+	overflow       : auto;
 	transition     : 1s;
 	position       : fixed;
 	top            : 10%;
@@ -133,7 +140,7 @@ ul {
 	display        : flex;
 	flex-direction : column;
 	align-items    : start;
-	gap            : 6px;
+	gap            : 16px;
 	padding        : 10px;
 	border         : solid;
 	max-width      : 500px;
@@ -167,16 +174,24 @@ li {
 }
 
 .test__list--img__arrow {
-	position  : absolute;
-	left     : -10px;
-	top       : -10px;
-	width     : 30px;
+	display       : none;
+	position      : absolute;
+	left          : -18px;
+	top           : -18px;
+	width         : 40px;
+	background    : burlywood;
+	border        : 2px;
+	padding       : 3px;
+	border-radius : 100%;
 	//
-	animation : click 1s ease-in-out infinite;
-	z-index: 20;
+	animation     : click 1s ease-in-out infinite;
+	z-index       : 20;
+}
+.test__list--img__arrow.active{
+	display: block;
 }
 
-.test__list{
+.test__list {
 	position : relative;
 	
 }
