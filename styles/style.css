@@ -180,6 +180,11 @@ label {
     font-size: calc(12px + 4 * (100vw / 1280));
   }
 }
+@media (min-width: 620px) {
+  label:hover {
+    transform: scale(1.05);
+  }
+}
 
 ol {
   margin-bottom: 100px;
@@ -375,7 +380,6 @@ button.selector__btn.active {
   border: slateblue solid 3px;
   padding-top: 20px;
   transition: 0.3s;
-  animation: popup__description 0.2s ease-in-out;
 }
 
 .selector__inner {
