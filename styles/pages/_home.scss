@@ -85,9 +85,11 @@ label {
 	@include adaptive-font(16, 12);
 	width : 250px;
 	transition: .3s;
-	//&:hover{
-	//	transform: scale(1.05);
-	//}
+	@media (min-width : 620px) {
+		&:hover{
+			transform: scale(1.05);
+		}
+	}
 }
 
 ol {
