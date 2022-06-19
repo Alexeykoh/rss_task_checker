@@ -1,0 +1,43 @@
+footer {
+	background-color : rebeccapurple;
+	position: fixed;
+	bottom : 0;
+	width : 100%;
+	//
+	.footer__img {
+		width  : 50px;
+		height : 50px;
+	}
+	
+	//
+	.footer__inner {
+		height          : 4rem;
+		display         : flex;
+		align-items     : center;
+		justify-content : space-around;
+		overflow        : hidden;
+		//
+		#rss-ico {
+			overflow : hidden;
+			width    : 90px;
+			height   : 90px;
+			
+		}
+		img{
+			filter: invert(1);
+		}
+		//
+		.footer__block {
+			display     : flex;
+			align-items : start;
+			gap         : 10px;
+			overflow    : hidden;
+			
+			p {
+				font-size   : 2rem;
+				font-family : "Kdam Thmor Pro", sans-serif;
+				color: white;
+			}
+		}
+	}
+}

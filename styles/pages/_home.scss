@@ -1,7 +1,5 @@
 main {
 	section {
-		//padding-top    : 100px;
-		//padding-bottom : 100px;
 		@include media-mobile {
 			padding-top    : 60px;
 			padding-bottom : 60px;
@@ -31,7 +29,7 @@ h3 {
 ol, ul {
 	display        : flex;
 	flex-direction : column;
-	gap            : 20px;
+	gap            : 12px;
 	//
 	user-select    : none;
 }
@@ -67,7 +65,7 @@ input[type=checkbox]:checked:after {
 	height            : 10px;
 	border            : solid black;
 	border-width      : 0 2px 2px 0;
-	-webkit-transform : rotate(45deg);
+	//-webkit-transform : rotate(45deg);
 	-ms-transform     : rotate(45deg);
 	transform         : rotate(45deg);
 	position          : absolute;
@@ -76,7 +74,6 @@ input[type=checkbox]:checked:after {
 }
 
 form {
-	//width           : 320px;
 	display         : flex;
 	align-items     : center;
 	justify-content : space-between;
@@ -87,9 +84,14 @@ form {
 label {
 	@include adaptive-font(16, 12);
 	width : 250px;
+	transition: .3s;
+	&:hover{
+		transform: scale(1.05);
+	}
 }
 
 ol {
+	margin-bottom : 100px;
 	li {
 		//
 		form {
@@ -192,11 +194,9 @@ ul {
 		font-size          : 1.2rem;
 		display            : block;
 		border             : slateblue solid 3px;
-		//background         : rgb(90, 211, 229);
 		-moz-appearance    : none;
 		-webkit-appearance : none;
 		appearance         : none;
-		//background         : none;
 	}
 }
 
@@ -204,13 +204,13 @@ ul {
 	border      : slateblue solid 3px;
 	padding-top : 25px;
 	//
-	transition  : .7s;
-	animation   : popup__description .8s ease-in-out;
+	transition  : .3s;
+	animation   : popup__description .4s ease-in-out;
 	@keyframes popup__description {
 		0% {
 			padding-top : 0;
 		}
-		35% {
+		55% {
 			padding-top : 30px;
 		}
 		100% {
@@ -243,6 +243,7 @@ li {
 }
 
 .done.active {
+	z-index : 50;
 	display   : block;
 	animation : done .4s ease-in-out;
 	@keyframes done {
