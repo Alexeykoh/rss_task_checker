@@ -60,12 +60,12 @@ img, svg {
 		padding-right : calc(120px / 4);
 	}
 	@include media-mobile {
-		padding-left  : calc(120px / 6);
-		padding-right : calc(120px / 6);
+		padding-left  : calc(120px / 4);
+		padding-right : calc(120px / 4);
 	}
 	@include media-mobile-small {
-		padding-left  : calc(120px / 12);
-		padding-right : calc(120px / 12);
+		padding-left  : calc(120px / 4);
+		padding-right : calc(120px / 4);
 	}
 }
 
