@@ -125,6 +125,13 @@ h1, h2, h3, h4, p, li, a, .nav__link {
   }
 }
 
+#description__p {
+  font-size: 0.7rem;
+}
+
+main {
+  min-height: 100vh;
+}
 main section {
   display: flex;
   flex-direction: column;
@@ -134,13 +141,17 @@ main section {
 }
 @media (max-width: 424px) {
   main section {
-    padding-top: 60px;
     padding-bottom: 60px;
   }
 }
 
 h2 {
   margin-bottom: 50px;
+}
+@media (max-width: 424px) {
+  h2 {
+    margin-bottom: 0;
+  }
 }
 
 .tittle {
@@ -160,7 +171,13 @@ ol, ul {
 }
 
 .test__item--label {
-  background: rgb(90, 211, 229);
+  background-color: #FF7373;
+  color: white;
+}
+
+.test__item--label.checked {
+  background-color: #5CCCCC;
+  color: black;
 }
 
 input[type=checkbox] {
@@ -183,12 +200,12 @@ label {
 }
 @media (max-width: 767px) {
   label {
-    font-size: calc(12px + 6.8 * ((100vw - 320px) / 1280));
+    font-size: calc(16px + 13.6 * ((100vw - 320px) / 1280));
   }
 }
 @media (min-width: 767px) {
   label {
-    font-size: calc(12px + 4 * (100vw / 1280));
+    font-size: calc(16px + 8 * (100vw / 1280));
   }
 }
 @media (min-width: 620px) {
@@ -197,15 +214,17 @@ label {
   }
 }
 
-ol {
-  margin-bottom: 150px;
-}
 ol li form label {
   box-shadow: 9px 11px 8px 0px rgba(34, 60, 80, 0.2);
   background: cornsilk;
   padding: 10px;
   border-radius: 10px;
-  width: 260px;
+  width: 420px;
+}
+@media (max-width: 620px) {
+  ol li form label {
+    width: 260px;
+  }
 }
 
 ul {
@@ -222,13 +241,17 @@ ul li form label {
   border-radius: 10px;
 }
 
+.description.active {
+  display: flex;
+}
+
 .description {
   overflow: auto;
   transition: 1s;
   position: fixed;
   top: 10%;
   right: 5%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: start;
   gap: 16px;
@@ -238,6 +261,7 @@ ul li form label {
   max-height: 70vh;
   margin-bottom: 150px;
   border-radius: 10px;
+  z-index: 100;
   box-shadow: 8px 6px 3px #3c354a;
 }
 .description .click {
@@ -249,10 +273,10 @@ ul li form label {
 @media (max-width: 767px) {
   .description .click {
     position: fixed;
-    bottom: 10%;
+    bottom: 1%;
     right: 5%;
     padding: 10px;
-    background: burlywood;
+    background: #FFBF40;
     border-radius: 10px;
   }
   .description .us-none {
@@ -324,7 +348,7 @@ header {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(95, 61, 220, 0.8);
+  background-color: #5CCCCC;
   overflow: hidden;
   z-index: 100;
 }
@@ -332,7 +356,7 @@ header {
 footer {
   z-index: 1000;
   background-color: rebeccapurple;
-  position: fixed;
+  position: unset;
   bottom: 0;
   width: 100%;
 }
@@ -371,19 +395,23 @@ button.submit__button {
   box-shadow: 12px 8px 10px 2px rgba(34, 60, 80, 0.37);
   display: none;
   z-index: 1000;
-  background: burlywood;
+  background: #FFD073;
   border: none;
   font-size: 1.1rem;
   border-radius: 10px;
   padding: 15px 10px;
   position: fixed;
-  bottom: 10%;
-  left: auto;
-  right: auto;
+  bottom: 50%;
+  left: 5%;
   animation: submit__button 1s ease-in-out infinite;
   transition: 0.4s;
 }
-@media (min-width: 620px) {
+@media (max-width: 620px) {
+  button.submit__button {
+    bottom: 10%;
+    left: 5%;
+    animation: submit__button--adapt 1s ease-in-out infinite;
+  }
   button.submit__button:hover {
     transform: scale(1.05);
   }
@@ -395,24 +423,38 @@ button.submit__button {
 
 @keyframes submit__button {
   0% {
-    bottom: 10%;
+    bottom: 50%;
     box-shadow: 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
   }
   50% {
-    bottom: 11%;
+    bottom: 51%;
     box-shadow: 12px 8px 9px 2px rgba(34, 60, 80, 0.37);
   }
   100% {
-    bottom: 10%;
+    bottom: 50%;
+    box-shadow: 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
+  }
+}
+@keyframes submit__button--adapt {
+  0% {
+    bottom: 1%;
+    box-shadow: 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
+  }
+  50% {
+    bottom: 2%;
+    box-shadow: 12px 8px 9px 2px rgba(34, 60, 80, 0.37);
+  }
+  100% {
+    bottom: 1%;
     box-shadow: 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
   }
 }
 button.selector__btn {
-  background: burlywood;
+  background: #FFD073;
   font-size: 1.1rem;
   border-radius: 10px;
   padding: 10px 20px;
-  width: 50%;
+  width: 55%;
   display: none;
 }
 button.selector__btn:hover {
@@ -433,11 +475,11 @@ button.selector__btn.active {
 .done {
   display: none;
   position: absolute;
-  top: -15px;
-  left: -20px;
+  top: -21px;
+  left: -22px;
   width: 20px;
   padding: 10px;
-  background: slateblue;
+  background: #FFB273;
   border-radius: 100%;
 }
 
@@ -445,10 +487,11 @@ button.selector__btn.active {
   z-index: 50;
   display: block;
   animation: done 0.1s linear;
+  border: #006363 solid 3px;
 }
 
 .checked {
-  border: slateblue solid 3px;
+  border: #006363 solid 3px;
   padding-top: 20px;
   transition: 0.3s;
 }
@@ -475,7 +518,7 @@ button.selector__btn.active {
   border-radius: 10px;
   font-size: 1.2rem;
   display: block;
-  border: slateblue solid 3px;
+  border: #5CCCCC solid 3px;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;

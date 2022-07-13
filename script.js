@@ -55,7 +55,7 @@ function loader () {
 }
 
 function loadBases (value) {
-	document.querySelector('.test__list--img__arrow').classList.add('active')
+	// document.querySelector('.test__list--img__arrow').classList.add('active')
 	for (let a = 0; a < jsonData.length; a++){
 		if(value === jsonData[a].list){
 
@@ -163,7 +163,7 @@ function loadBases (value) {
 					if (this.checked){
 						labelCont.classList.add('checked') //not-active
 						done.classList.add('active')
-						document.querySelector('.test__list--img__arrow').classList.remove('active')
+						// document.querySelector('.test__list--img__arrow').classList.remove('active')
 					} else{
 						labelCont.classList.remove('checked')
 						done.classList.remove('active')
@@ -199,8 +199,9 @@ function writeResult (){
 		if (elements.checked){
 			score = score + elements.value*1
 			description__p.innerHTML += '- ' + text.innerHTML + ' +' + elements.value + '<br>';
+			document.querySelector('.description').classList.add('active')
 		} else {
-			description__p.innerHTML += '<span class="red">[ Не выполнено ] </span> - ' + text.innerHTML + ' +' + elements.value + '<br>';
+			description__p.innerHTML +='- ~~' + text.innerHTML + ' +' + elements.value + '<span class="red">~~ [ Не выполнено ] </span>' + '<br>';
 		}
 	})
 	const check = document.querySelector('.submit__button')
