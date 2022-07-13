@@ -27,8 +27,17 @@ h2 {
 }
 
 h3 {
-	margin-top    : 25px;
+	margin-top    : 40px;
 	margin-bottom : 15px;
+	//
+	font-size: 1.5rem;
+	//
+	width         : 420px;
+	@media (max-width : 620px) {
+		width : 260px;
+		margin-top    : 25px;
+	}
+	//
 }
 
 ol, ul {
@@ -151,7 +160,6 @@ ul {
 		top       : unset;
 		right     : unset;
 		max-width : 320px;
-		z-index   : 2000;
 	}
 	overflow       : auto;
 	transition     : 1s;
@@ -170,8 +178,6 @@ ul {
 	max-height     : 70vh;
 	margin-bottom  : 150px;
 	border-radius  : 10px;
-	//
-	z-index        : 2000;
 	//
 	box-shadow     : 8px 6px 3px #3c354a;
 }
