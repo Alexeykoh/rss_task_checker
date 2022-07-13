@@ -254,7 +254,6 @@ ul li form label {
 }
 
 .description {
-  overflow: auto;
   transition: 1s;
   position: fixed;
   top: 10%;
@@ -362,7 +361,7 @@ header {
 
 footer {
   z-index: 1000;
-  background-color: rebeccapurple;
+  background-color: rgba(92, 204, 204, 0.49);
   position: unset;
   bottom: 0;
   width: 100%;
