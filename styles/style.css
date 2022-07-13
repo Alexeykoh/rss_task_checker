@@ -292,6 +292,7 @@ ul li form label {
     top: unset;
     right: unset;
     max-width: 320px;
+    z-index: 2000;
   }
 }
 
@@ -467,6 +468,7 @@ button.selector__btn.active {
 
 .clipboard__btn {
   transition: 0.1s;
+  z-index: 1000;
 }
 .clipboard__btn:hover {
   transform: scale(1.2);

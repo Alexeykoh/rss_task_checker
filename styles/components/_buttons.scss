@@ -4,10 +4,10 @@ button.submit__button {
 			transform : scale(1.05);
 		}
 		//
-		bottom        : 10%;
-		left          : 5%;
+		bottom    : 10%;
+		left      : 5%;
 		//
-		animation     : submit__button--adapt 1s ease-in-out infinite;
+		animation : submit__button--adapt 1s ease-in-out infinite;
 	}
 	//
 	box-shadow    : 12px 8px 10px 2px rgba(34, 60, 80, 0.37);
@@ -47,6 +47,7 @@ button.submit__button {
 		box-shadow : 4px 2px 4px 2px rgba(34, 60, 80, 0.37);
 	}
 }
+
 @keyframes submit__button--adapt {
 	0% {
 		bottom     : 1%;
@@ -81,6 +82,7 @@ button.selector__btn.active {
 
 .clipboard__btn {
 	transition : .1s;
+	z-index    : 1000;
 	
 	&:hover {
 		transform : scale(1.2);
