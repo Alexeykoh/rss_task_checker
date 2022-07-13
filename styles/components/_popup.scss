@@ -1,11 +1,11 @@
 .done {
 	display       : none;
 	position      : absolute;
-	top           : -15px;
-	left          : -20px;
+	top           : -21px;
+	left          : -22px;
 	width         : 20px;
 	padding       : 10px;
-	background    : slateblue;
+	background    : #FFB273;
 	border-radius : 100%;
 }
 
@@ -13,11 +13,12 @@
 	z-index   : 50;
 	display   : block;
 	animation : done .1s linear;
+	border    : #006363 solid 3px;
 	
 }
 
 .checked {
-	border      : slateblue solid 3px;
+	border      : #006363 solid 3px;
 	padding-top : 20px;
 	//
 	transition  : .3s;
@@ -50,7 +51,7 @@
 		border-radius      : 10px;
 		font-size          : 1.2rem;
 		display            : block;
-		border             : slateblue solid 3px;
+		border             : #5CCCCC solid 3px;
 		-moz-appearance    : none;
 		-webkit-appearance : none;
 		appearance         : none;
