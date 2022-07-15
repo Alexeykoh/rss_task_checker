@@ -1,12 +1,21 @@
 header {
+	//
+	font-size: 2rem;
+	//
 	position         : fixed;
 	width            : 100%;
 	padding-top      : 10px;
 	padding-bottom   : 10px;
 	//background-color : rgba(95, 61, 220, 0.8);
-	background-color: #5CCCCC;
+	background-color: $primary-color;
 	overflow         : hidden;
 	z-index          : 100;
 	//
+	@include media-mobile{
+		padding-top      : 10px;
+		padding-bottom   : 10px;
+		font-size: 1.1rem;
+	}
+	
 }
 

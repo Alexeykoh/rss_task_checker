@@ -16,12 +16,6 @@
 	<div class="container">
 		<div class="logo">
 			<h1 class="header__tittle us-none">Task Checker</h1>
-		</div>
-	</div>
-</header>
-<main>
-	<div class="container">
-		<section class="task">
 			<div class="selector__inner tittle">
 				
 				<label class="selector__label">
@@ -30,27 +24,47 @@
 						<!--					js input-->
 					</select>
 				</label>
-				<button class="selector__btn">
-					reload task
-				</button>
+				<div class="reload__btn">
+					<img src="assets/ico/reload.svg" alt="arrow-left" class="">
+					<button class="selector__btn">
+						reload task
+					</button>
+				</div>
+				<div class="score">
+					<p class="score__label">score</p>
+					<p class="score__input">0</p>
+					<p class="">/</p>
+					<p class="score__input--max">0</p>
+				</div>
+				<div class="click">
+					<img id="clip__before" class="clipboard__btn" src="assets/ico/clipboard.svg" alt="clipboard">
+					<img id="clip__after" class="clipboard__btn hidden" src="assets/ico/clipboard_copyed.svg" alt="clipboard">
+					<p class="clipboard__p us-none">copy all</p>
+				</div>
 			</div>
-			<h2 class="selected__task"></h2>
-			<button class="submit__button">check</button>
-			<ol class="test__list">
-				<img src="assets/ico/touch.svg" alt="touch-img" class="test__list--img__arrow">
-<!--				js input-->
-			</ol>
+		</div>
+	</div>
+</header>
+<main>
+		<section class="task">
+			<nav>
+				<div class="container">
+				
+				</div>
+			</nav>
+			<div class="container">
+				<h2 class="selected__task"></h2>
+				<ol class="test__list">
+					<img src="assets/ico/touch.svg" alt="touch-img" class="test__list--img__arrow">
+					<!--				js input-->
+				</ol>
+			</div>
 			
 		</section>
-		<section class="description">
-			<div class="click">
-				<img id="clip__before" class="clipboard__btn" src="assets/ico/clipboard.svg" alt="clipboard">
-				<img id="clip__after" class="clipboard__btn hidden" src="assets/ico/clipboard_copyed.svg" alt="clipboard">
-				<p class="clipboard__p us-none">скопировать</p>
-			</div>
-			<p id="description__p"></p>
+		<section class="side">
+		
+		
 		</section>
-	</div>
 </main>
 
 <footer class="footer" id="footer">

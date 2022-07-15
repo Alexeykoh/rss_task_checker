@@ -32,6 +32,7 @@ ol, ul {
 button {
 	cursor           : pointer;
 	background-color : var(--btn_color);
+	font-family: "Comfortaa", cursive;
 }
 
 img, svg {
@@ -46,7 +47,7 @@ img, svg {
 
 // container
 .container {
-	max-width     : 920px;
+	max-width     : 1280px;
 	padding-left  : 120px;
 	padding-right : 120px;
 	margin        : 0 auto;

@@ -4,9 +4,9 @@
 // scroll to anchor
 
 
-let jsonData  = [];
+let jsonData   = [];
 const fetchURL = 'base.json';
-const task = document.querySelector('ol.test__list')
+const task     = document.querySelector ('ol.test__list')
 
 fetch (fetchURL)
 	.then (resp => {
@@ -16,56 +16,63 @@ fetch (fetchURL)
 	.then (function rec (key) {
 
 		// loading JSON database
-		loadSelector()
+		loadSelector ()
 	})
-
 
 
 //
 let jsonDataKeys = [];
-const selector = document.querySelector('.selector')
+const selector   = document.querySelector ('.selector')
 
-function loadSelector(){
+function loadSelector () {
 	//
-	for (let i = 0; i < jsonData.length; i++){
+	for (let i = 0; i < jsonData.length; i++) {
 		//
 		const option = document.createElement ("option");
 		option.setAttribute ('value', `${jsonData[i].list}`);
 		option.innerHTML = jsonData[i].description
 		selector.appendChild (option);
 	}
-	document.querySelector('.selector__btn').classList.add('active')
+	document.querySelector ('.selector__btn').classList.add ('active')
 	//
 }
 
-const selector__btn = document.querySelector('.selector__btn')
+const selector__btn = document.querySelector ('.reload__btn')
 
-selector__btn.addEventListener('click', function (){
-	loader()
+selector__btn.addEventListener ('click', function () {
+	loader ()
 })
 //
-selector.addEventListener('change', function (a){
-	loader()
+selector.addEventListener ('change', function (a) {
+	loader ()
+
 });
 
 function loader () {
-	document.querySelector('.selected__task').innerHTML = selector.value
-	removeAll()
-	loadBases(selector.value)
+	// document.querySelector ('.selected__task').innerHTML = selector.value
+	removeAll ()
+	loadBases (selector.value)
+	scrollToTop ()
 }
 
-function loadBases (value) {
-	// document.querySelector('.test__list--img__arrow').classList.add('active')
-	for (let a = 0; a < jsonData.length; a++){
-		if(value === jsonData[a].list){
 
+function loadBases (value) {
+	const score__input     = document.querySelector ('.score__input')
+	score__input.innerHTML = 0;
+	let maxScore           = 0;
+	// document.querySelector('.test__list--img__arrow').classList.add('active')
+	for (let a = 0; a < jsonData.length; a++) {
+		if (value === jsonData[a].list) {
+			//
+			document.querySelector ('.selected__task').innerHTML = jsonData[a].description
+			//
 			for (let i = 0; i < jsonData[a].include.length; i++) {
 				const l1_main = document.createElement ("li");
 				l1_main.classList.add (`test__item`);
 				task.appendChild (l1_main);
 				//
 
-				if(jsonData[a].include[i].include){
+				if (jsonData[a].include[i].include) {
 					//
 					const h3 = document.createElement ("h3");
 					h3.classList.add (`test__item--h3`);
@@ -109,12 +116,16 @@ function loadBases (value) {
 						inputSecond.setAttribute ('id', `label_${i}_${k}`);
 						inputSecond.setAttribute ('name', `input_${i}_${k}`);
 						inputSecond.setAttribute ('value', `${jsonData[a].include[i].arr[k].value}`);
+						maxScore += jsonData[a].include[i].arr[k].value
 						formSecond.appendChild (inputSecond);
 						//
+						const scoreLabelSecond = document.createElement ("p");
+						scoreLabelSecond.classList.add (`score__label`);
+						scoreLabelSecond.setAttribute ('id', `score_${i}_${k}`);
+						scoreLabelSecond.innerText = '+' + jsonData[a].include[i].arr[k].value
+						formSecond.appendChild (scoreLabelSecond);
 					}
-				}
-				else
-				{
+				} else {
 					const form = document.createElement ("form");
 					form.classList.add (`test__item--form`);
 					form.setAttribute ('action', "");
@@ -142,120 +153,157 @@ function loadBases (value) {
 					input.setAttribute ('id', `label_${i}`);
 					input.setAttribute ('name', `input_${i}`);
 					input.setAttribute ('value', `${jsonData[a].include[i].value}`);
+					maxScore += jsonData[a].include[i].value
 					form.appendChild (input);
 					//
+					const scoreLabel = document.createElement ("p");
+					scoreLabel.classList.add (`score__label`);
+					scoreLabel.setAttribute ('id', `score_${i}`);
+					scoreLabel.innerText = '+' + jsonData[a].include[i].value
+					form.appendChild (scoreLabel);
+					//
 				}
-
 			}
 			//
-			document.querySelector('.submit__button').classList.add('active')
+			document.querySelector ('.score__input--max').innerHTML = maxScore;
 			//
-			const inputs = document.querySelectorAll('input');
-			const description = document.querySelector('.description')
-			inputs.forEach(function (elem){
-				elem.addEventListener('click',function (kek){
-					const labelCont = document.getElementById(this.id).previousSibling
-					let getID = this.id.slice(5,this.id.length);
-					const done = document.getElementById(  `img-id${getID}`)
+			const inputs                                            = document.querySelectorAll ('input');
+			const description                                       = document.querySelector ('.description')
+			inputs.forEach (function (elem) {
+				elem.addEventListener ('click', function (kek) {
+					const labelCont   = document.getElementById (this.id).previousSibling
+					let getID         = this.id.slice (5, this.id.length);
+					const done        = document.getElementById (`img-id${getID}`)
+					const scoreCheck  = document.getElementById (`score${getID}`)
+					const scoreScreen = document.querySelector ('.score')
 					//
-					writeResult()
+					writeResult ()
 					//
-					if (this.checked){
-						labelCont.classList.add('checked') //not-active
-						done.classList.add('active')
-						// document.querySelector('.test__list--img__arrow').classList.remove('active')
-					} else{
-						labelCont.classList.remove('checked')
-						done.classList.remove('active')
+					toNextElement (this.id)
+					//
+					if (this.checked) {
+						labelCont.classList.add ('checked') //not-active
+						done.classList.add ('active')
+						scoreCheck.classList.add ('active')
+						//
+						scoreScreen.classList.add ('green')
+						setTimeout (function () {
+							scoreScreen.classList.remove ('green')
+						}, 220);
+						//
+					} else {
+						labelCont.classList.remove ('checked')
+						done.classList.remove ('active')
+						scoreCheck.classList.remove ('active')
+						//
+						scoreScreen.classList.add ('red')
+						setTimeout (function () {
+							scoreScreen.classList.remove ('red')
+						}, 220);
 					}
+					//
+					labelCont.classList.add ('first--click')
+					//
+
 				})
 			})
-
-			const check = document.querySelector('.submit__button')
-			check.addEventListener('click', writeResult)
-			check.addEventListener('click', function (){
-				window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
-			})
-			clipReset()
 		}
 	}
 
 }
 
 
-
 // ======  // ======  // ======  // ======  // ======  // ======  // ======  // ======
-function writeResult (){
+let comment = [];
+
+function writeResult () {
 	//
 	let score = 0;
-	removeDescriptions();
+	removeDescriptions ();
 	//
-	const inputs = document.querySelectorAll('input');
+	const inputs = document.querySelectorAll ('input');
 	inputs.forEach (function (elements) {
 
 		//
-		const description__p = document.getElementById('description__p')
-		let text = elements.previousSibling
-		if (elements.checked){
-			score = score + elements.value*1
-			description__p.innerHTML += '- ' + text.innerHTML + ' +' + elements.value + '<br>';
-			document.querySelector('.description').classList.add('active')
+		const description__p = document.getElementById ('description__p')
+		let text             = elements.previousSibling
+		if (elements.checked) {
+			score = score + elements.value * 1
+			comment.push ('- ' + text.innerHTML + ' +' + elements.value + '<br>');
 		} else {
-			description__p.innerHTML +='- ~~' + text.innerHTML + ' +' + elements.value + '<span class="red">~~ [ Не выполнено ] </span>' + '<br>';
+			comment.push ('- ~~' + text.innerHTML + ' +' + elements.value + '<span class="red">~~ [ Не выполнено ] </span>' + '<br>');
 		}
 	})
-	const check = document.querySelector('.submit__button')
-	check.innerHTML = "check / score: "+score
 	//
+	const score__input     = document.querySelector ('.score__input')
+	score__input.innerHTML = score
 	//
-	clipReset()
+	clipReset ()
 }
+
 // ======  // ======  // ======  // ======  // ======  // ======  // ======  // ======
 
 
 function removeDescriptions () {
-	const description = document.getElementById('description__p')
-	description.innerHTML = '';
-}
-function removeAll () {
-	let removeAll = document.querySelectorAll('li')
-	removeAll.forEach (function (elements) {
-		elements.remove()
-	})
-	removeDescriptions()
-	document.querySelector('.submit__button').innerHTML = "check"
+	comment = [];
 }
 
-document.querySelector('.header__tittle').addEventListener('click', function (){
-	window.scrollTo({
-		top: 0,
-		behavior: "smooth"
-	});
+function removeAll () {
+	let removeAll = document.querySelectorAll ('li')
+	removeAll.forEach (function (elements) {
+		elements.remove ()
+	})
+	removeDescriptions ()
+}
+
+document.querySelector ('.header__tittle').addEventListener ('click', function () {
+	scrollToTop ()
 })
 
 
 // clipboard
-const clipBefore = document.getElementById('clip__before')
-const clipAfter = document.getElementById('clip__after')
+const clipBefore = document.getElementById ('clip__before')
+const clipAfter  = document.getElementById ('clip__after')
 //
-const clip_btn = document.querySelector('.clipboard__btn');
-const  clip_p = document.querySelector('.clipboard__p');
-clip_btn.addEventListener('click', function (){
-	const description = document.getElementById('description__p')
-	navigator.clipboard.writeText(description.innerText)
+const clip_btn   = document.querySelector ('.click');
+const clip_p     = document.querySelector ('.clipboard__p');
+clip_btn.addEventListener ('click', function () {
+	const description = document.getElementById ('description__p')
+	navigator.clipboard.writeText (comment.join (''))
 	//
-	if (description.innerText !== ""){
-		clip_p.innerText = 'скопирован'
-		//
-		clipBefore.classList.add('hidden')
-		clipAfter.classList.remove('hidden')
-	}
+	clip_p.innerText = 'in clipboard'
+	//
+	// clipBefore.classList.remove ('active')
+	clipBefore.classList.add ('hidden')
+	clipAfter.classList.remove ('hidden')
+	//
+	clipAfter.classList.add ('active')
 })
 
-function clipReset (){
-	clip_p.innerText = 'скопировать'
+function clipReset () {
+	clip_p.innerText = 'copy all'
 	//
-	clipBefore.classList.remove('hidden')
-	clipAfter.classList.add('hidden')
+	clipBefore.classList.remove ('hidden')
+	clipAfter.classList.add ('hidden')
+	//
+	clipAfter.classList.remove ('active')
 }
 
+function scrollToTop () {
+	window.scrollTo ({
+		top:      0,
+		behavior: "smooth"
+	});
+}
+
+function toNextElement (element) {
+	// let getElement = document.getElementById(element).clientWidth
+	// console.log (document.getElementById (element).clientHeight)
+	// console.log (document.querySelector(`#${element}`).clientWidth)
+	// console.log (window.pageYOffset)
+
+
+	//
+	// console.log (document.getElementById(element).getBoundingClientRect())
+	//
+}
