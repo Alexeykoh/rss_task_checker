@@ -69,3 +69,19 @@
 		left : 400px;
 	}
 }
+@keyframes score620 {
+	0% {
+		opacity : 0;
+		left : 0;
+		transform : scale(0);
+	}
+	20% {
+		left : 260px;
+		transform : scale(1.5);
+	}
+	100%{
+		transform : scale(1);
+		opacity : 1;
+		left : 240px;
+	}
+}

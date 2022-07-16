@@ -89,6 +89,9 @@ form {
 	opacity    : 0;
 	position   : absolute;
 	left       : 400px;
+	@media (max-width : 620px){
+		left       : 240px;
+	}
 	bottom     : 10px;
 	font-size  : 1.2rem;
 	transition : .5s;
@@ -97,6 +100,9 @@ form {
 .score__label.active {
 	opacity   : 1;
 	animation : score .3s ease-in-out;
+	@media (max-width : 620px){
+		animation : score620 .3s ease-in-out;
+	}
 }
 
 .test__item--form {
@@ -186,11 +192,11 @@ ul {
 
 // ============================================ //
 // score
-.score__label {
-	@include media-tablet {
-		display : none;
-	}
-}
+//.score__label {
+//	@include media-tablet {
+//		display : none;
+//	}
+//}
 
 .score {
 	//@include media-mobile {
