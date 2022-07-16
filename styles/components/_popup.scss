@@ -5,7 +5,7 @@
 	left          : -22px;
 	width         : 20px;
 	padding       : 10px;
-	background    : #FFB273;
+	background    : $primary-color;
 	border-radius : 100%;
 }
 
@@ -13,13 +13,14 @@
 	z-index   : 50;
 	display   : block;
 	animation : done .1s linear;
-	border    : #006363 solid 3px;
+	border    : $secondary-color solid 3px;
 	
 }
 
 .checked {
-	border      : #006363 solid 3px;
+	border      : $secondary-color solid 3px;
 	padding-top : 20px;
+	padding-bottom : 35px;
 	//
 	transition  : .3s;
 	//animation   : popup__description .2s ease-in-out;
@@ -27,33 +28,48 @@
 }
 
 .selector__inner {
-	display         : flex;
-	gap             : 20px;
-	align-items     : start;
-	flex-direction  : column;
-	justify-content : center;
+	@include media-mobile{
+		//flex-direction: column;
+		//align-items    : start;
+		flex-wrap: wrap;
+	}
+	display        : flex;
+	gap            : 20px;
+	align-items    : center;
+	flex-direction : row;
+	
 	//
 	.img__arrow {
 		position  : absolute;
-		right     : 0;
+		right     : -5%;
 		top       : 10px;
 		width     : 30px;
 		//
-		animation : img__arrow 1s ease-in-out infinite;
+		animation : img__arrow .5s ease-in-out infinite;
 	}
+	//img{
+	//	filter: invert(1);
+	//}
 	
 	.selector__label {
 		position : relative;
+		height   : 50px;
 	}
 	
 	.selector {
-		padding            : 10px 20px;
+		height : 100%;
+		padding            : 0 20px;
 		border-radius      : 10px;
 		font-size          : 1.2rem;
 		display            : block;
-		border             : #5CCCCC solid 3px;
+		border             : $secondary-color solid 3px;
 		-moz-appearance    : none;
 		-webkit-appearance : none;
 		appearance         : none;
+		font-family        : "Comfortaa", cursive;
+		//
+		option {
+			padding-top : 30px;
+		}
 	}
 }

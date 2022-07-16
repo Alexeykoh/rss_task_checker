@@ -63,21 +63,49 @@ button.submit__button {
 	}
 }
 
-button.selector__btn {
-	background    : #FFD073;
-	font-size     : 1.1rem;
-	border-radius : 10px;
-	padding       : 10px 20px;
-	width         : 55%;
-	display       : none;
+.reload__btn {
+	
+	padding        : 0 20px;
+	height         : 50px;
+	border-radius  : 10px;
+	background     : white;
+	display        : flex;
+	flex-direction : row;
+	align-items    : center;
+	
+	img {
+		transition     : .5s;
+		height        : 25px;
+		margin-right : 8px;
+		@include media-mobile{
+			margin-right : unset;
+		}
+	}
 	
 	&:hover {
 		transform : scale(1.05);
+		//
+		img {
+			transform-origin: 50% center;
+			transform: rotate(180deg);
+		}
 	}
+}
+
+button.selector__btn {
+	font-size : 1.2rem;
+	border    : none;
+	display   : none;
+	
+	
 }
 
 button.selector__btn.active {
 	display : block;
+	color   : $form-color_Active;
+	@include media-mobile{
+		display: none;
+	}
 }
 
 .clipboard__btn {
