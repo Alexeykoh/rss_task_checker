@@ -263,12 +263,12 @@ label {
 }
 @media (max-width: 767px) {
   label {
-    font-size: calc(16px + 13.6 * ((100vw - 320px) / 1280));
+    font-size: calc(18px + 10.2 * ((100vw - 320px) / 1280));
   }
 }
 @media (min-width: 767px) {
   label {
-    font-size: calc(16px + 8 * (100vw / 1280));
+    font-size: calc(18px + 6 * (100vw / 1280));
   }
 }
 
@@ -315,34 +315,63 @@ ul li form label {
   user-select: none;
 }
 
-@media (max-width: 424px) {
+@media (max-width: 767px) {
   .clipboard__p {
     display: none;
   }
 }
 
-@media (max-width: 424px) {
+@media (max-width: 767px) {
   .score__label {
     display: none;
   }
 }
 
 .score {
+  overflow: hidden;
   transition: 0.1s;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
   height: 50px;
-  width: 150px;
+  width: 85px;
   background: white;
   padding: 0 20px;
   border-radius: 10px;
   font-size: 1.2rem;
+  gap: 25px;
+}
+
+.score__input__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: 0.5s;
+}
+
+@media (max-width: 424px) {
+  .score__item {
+    transform: translateY(24px);
+  }
+}
+
+.toTop__button {
+  transition: 0.5s;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
 }
 @media (max-width: 424px) {
-  .score {
-    width: 85px;
+  .toTop__button {
+    display: flex;
   }
+}
+.toTop__button img {
+  width: 25px;
+  margin-right: 5px;
 }
 
 .score.green {
@@ -355,7 +384,6 @@ ul li form label {
 
 .clipboard__btn.active {
   background: #C4FCEF;
-  padding: 3px;
   border-radius: 5px;
 }
 
@@ -406,8 +434,29 @@ li {
   position: relative;
 }
 
+.extra__element {
+  border: solid 1px rgba(0, 0, 0, 0.11);
+}
+
+.extra__nav {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .extra__nav {
+    gap: unset;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 8px;
+    left: 0;
+    width: 100vw;
+  }
+}
+
 header {
   font-size: 2rem;
+  transition: 0.5s;
   position: fixed;
   width: 100%;
   padding-top: 10px;
@@ -421,6 +470,12 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 424px) {
+  header.hide {
+    transform: translateY(-100%);
   }
 }
 
@@ -533,6 +588,11 @@ button.submit__button {
   transition: 0.5s;
   height: 25px;
   margin-right: 8px;
+}
+@media (max-width: 424px) {
+  .reload__btn img {
+    margin-right: unset;
+  }
 }
 .reload__btn:hover {
   transform: scale(1.05);

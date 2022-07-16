@@ -77,6 +77,9 @@ button.submit__button {
 		transition     : .5s;
 		height        : 25px;
 		margin-right : 8px;
+		@include media-mobile{
+			margin-right : unset;
+		}
 	}
 	
 	&:hover {

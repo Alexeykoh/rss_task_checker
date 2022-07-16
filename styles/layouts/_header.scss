@@ -2,6 +2,8 @@ header {
 	//
 	font-size: 2rem;
 	//
+	transition: .5s;
+	//
 	position         : fixed;
 	width            : 100%;
 	padding-top      : 10px;
@@ -17,5 +19,11 @@ header {
 		font-size: 1.1rem;
 	}
 	
+}
+header.hide{
+	//
+	@include media-mobile{
+		transform: translateY(-100%);
+	}
 }
 

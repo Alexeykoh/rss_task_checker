@@ -179,8 +179,6 @@ function loadBases (value) {
 					//
 					writeResult ()
 					//
-					toNextElement (this.id)
-					//
 					if (this.checked) {
 						labelCont.classList.add ('checked') //not-active
 						done.classList.add ('active')
@@ -296,14 +294,60 @@ function scrollToTop () {
 	});
 }
 
-function toNextElement (element) {
-	// let getElement = document.getElementById(element).clientWidth
-	// console.log (document.getElementById (element).clientHeight)
-	// console.log (document.querySelector(`#${element}`).clientWidth)
-	// console.log (window.pageYOffset)
+const score__extra__element = document.querySelector('.score')
+score__extra__element.addEventListener('click',function (value){
+	scrollToTop()
+})
 
+// сообщение о прокрутку наверх
 
+const score__item = document.querySelector('.score__input__container')
+const toTop__button = document.querySelector('.toTop__button')
+let score__item__Toggle = true;
+
+function showToTop(){
+	const defaultPos = 24;
+	const finalPos = -24;
 	//
-	// console.log (document.getElementById(element).getBoundingClientRect())
+	score__item.style.transform = `translateY(${finalPos}px)`
+	toTop__button.style.transform = `translateY(${finalPos}px)`
 	//
+	if (score__item__Toggle){
+		score__item__Toggle = false;
+		setTimeout(function () {
+			score__item.style.transform = `translateY(${defaultPos}px)`
+			toTop__button.style.transform = `translateY(${defaultPos}px)`
+			score__item__Toggle = true;
+			console.log ('final')
+		}, 3500);
+	}
 }
+function showToTopDefault(){
+	score__item.style.transform = `translateY(0px)`
+	toTop__button.style.transform = `translateY(0px)`
+}
+
+let lastScroll = 0;
+const defaultOffset = 200;
+// const header = document.querySelector('.header');
+
+const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
+
+
+window.addEventListener('scroll', () => {
+	if(scrollPosition() < lastScroll && score__item__Toggle && scrollPosition() < defaultOffset) {
+		if (window.innerWidth>=685){
+			showToTopDefault()
+		}
+	}
+	else if(scrollPosition() > lastScroll && score__item__Toggle){
+		if (window.innerWidth>=685){
+			showToTopDefault()
+		} else {
+			console.log ('to top')
+			showToTop()
+		}
+	}
+
+	lastScroll = scrollPosition();
+})

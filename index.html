@@ -19,27 +19,35 @@
 			<div class="selector__inner tittle">
 				
 				<label class="selector__label">
-					<img src="assets/ico/arrow-left.svg" alt="arrow-left" class="img__arrow">
+<!--					<img src="assets/ico/arrow-left.svg" alt="arrow-left" class="img__arrow">-->
 					<select id="selector" class="selector">
 						<!--					js input-->
 					</select>
 				</label>
-				<div class="reload__btn">
-					<img src="assets/ico/reload.svg" alt="arrow-left" class="">
-					<button class="selector__btn">
-						reload task
-					</button>
-				</div>
-				<div class="score">
-					<p class="score__label">score</p>
-					<p class="score__input">0</p>
-					<p class="">/</p>
-					<p class="score__input--max">0</p>
-				</div>
-				<div class="click">
-					<img id="clip__before" class="clipboard__btn" src="assets/ico/clipboard.svg" alt="clipboard">
-					<img id="clip__after" class="clipboard__btn hidden" src="assets/ico/clipboard_copyed.svg" alt="clipboard">
-					<p class="clipboard__p us-none">copy all</p>
+				<div class="extra__nav">
+					<div class="reload__btn extra__element">
+						<img src="assets/ico/reload.svg" alt="arrow-left" class="">
+						<button class="selector__btn">
+							reload task
+						</button>
+					</div>
+					<div class="score extra__element">
+						<div class="score__input__container score__item">
+							<p class="score__label">score</p>
+							<p class="score__input">0</p>
+							<p class="">/</p>
+							<p class="score__input--max">0</p>
+						</div>
+						<div class="toTop__button score__item">
+							<img src="assets/ico/top-btn.svg" alt="top-btn">
+							<p>to top</p>
+						</div>
+					</div>
+					<div class="click extra__element">
+						<img id="clip__before" class="clipboard__btn" src="assets/ico/clipboard.svg" alt="clipboard">
+						<img id="clip__after" class="clipboard__btn hidden" src="assets/ico/clipboard_copyed.svg" alt="clipboard">
+						<p class="clipboard__p us-none">copy all</p>
+					</div>
 				</div>
 			</div>
 		</div>
