@@ -1,4 +1,7 @@
 footer {
+	@include media-tablet{
+		display: none;
+	}
 	z-index: 1000;
 	background-color : $footer-color;
 	position: unset;

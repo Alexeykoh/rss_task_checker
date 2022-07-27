@@ -468,7 +468,7 @@ li {
     gap: unset;
     justify-content: space-around;
     position: fixed;
-    bottom: 8px;
+    bottom: 22px;
     left: 0;
     width: 100vw;
   }
@@ -505,6 +505,11 @@ footer {
   position: unset;
   bottom: 0;
   width: 100%;
+}
+@media (max-width: 767px) {
+  footer {
+    display: none;
+  }
 }
 footer .footer__img {
   width: 50px;
