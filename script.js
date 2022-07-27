@@ -98,7 +98,11 @@ function loadBases (value) {
 						const doneSecond = document.createElement ("img");
 						doneSecond.classList.add (`done`);
 						doneSecond.setAttribute ('alt', "done-img");
-						doneSecond.setAttribute ('src', "assets/ico/done.svg");
+						if(jsonData[a].include[i].arr[k].radio){
+							doneSecond.setAttribute ('src', "assets/ico/radio.svg");
+						} else {
+							doneSecond.setAttribute ('src', "assets/ico/done.svg");
+						}
 						doneSecond.setAttribute ('id', `img-id_${i}_${k}`);
 						formSecond.appendChild (doneSecond);
 
@@ -112,6 +116,7 @@ function loadBases (value) {
 						//
 						const inputSecond = document.createElement ("input");
 						inputSecond.classList.add (`input__class`);
+						if(jsonData[a].include[i].arr[k].radio){inputSecond.classList.add ('radio');}
 						inputSecond.setAttribute ('type', `checkbox`);
 						inputSecond.setAttribute ('id', `label_${i}_${k}`);
 						inputSecond.setAttribute ('name', `input_${i}_${k}`);
@@ -124,6 +129,8 @@ function loadBases (value) {
 						scoreLabelSecond.setAttribute ('id', `score_${i}_${k}`);
 						scoreLabelSecond.innerText = '+' + jsonData[a].include[i].arr[k].value
 						formSecond.appendChild (scoreLabelSecond);
+						//
+
 					}
 				} else {
 					const form = document.createElement ("form");
@@ -149,6 +156,7 @@ function loadBases (value) {
 					//
 					const input = document.createElement ("input");
 					input.classList.add (`input__class`);
+					if(jsonData[a].include[i].radio){inputSecond.classList.add ('radio');}
 					input.setAttribute ('type', `checkbox`);
 					input.setAttribute ('id', `label_${i}`);
 					input.setAttribute ('name', `input_${i}`);
@@ -178,6 +186,7 @@ function loadBases (value) {
 					const scoreScreen = document.querySelector ('.score')
 					//
 					writeResult ()
+					radioCheck(this.id)
 					//
 					if (this.checked) {
 						labelCont.classList.add ('checked') //not-active
@@ -227,9 +236,9 @@ function writeResult () {
 		let text             = elements.previousSibling
 		if (elements.checked) {
 			score = score + elements.value * 1
-			comment.push ('- ' + text.innerHTML + ' +' + elements.value + '<br>');
+			comment.push ('- ' + text.innerHTML + ' +' + elements.value + '\n');
 		} else {
-			comment.push ('- ~~' + text.innerHTML + ' +' + elements.value + '<span class="red">~~ [ Не выполнено ] </span>' + '<br>');
+			comment.push ('- ~~' + text.innerHTML + ' +' + elements.value + '<span class="red">~~ [ Не выполнено ] </span>' + '\n');
 		}
 	})
 	//
@@ -299,6 +308,8 @@ score__extra__element.addEventListener('click',function (value){
 	scrollToTop()
 })
 
+
+// =========================================================== //
 // сообщение о прокрутку наверх
 
 const score__item = document.querySelector('.score__input__container')
@@ -318,8 +329,7 @@ function showToTop(){
 			score__item.style.transform = `translateY(${defaultPos}px)`
 			toTop__button.style.transform = `translateY(${defaultPos}px)`
 			score__item__Toggle = true;
-			console.log ('final')
-		}, 3500);
+		}, 1000);
 	}
 }
 function showToTopDefault(){
@@ -329,8 +339,6 @@ function showToTopDefault(){
 
 let lastScroll = 0;
 const defaultOffset = 200;
-// const header = document.querySelector('.header');
-
 const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
 
 
@@ -344,10 +352,38 @@ window.addEventListener('scroll', () => {
 		if (window.innerWidth>=685){
 			showToTopDefault()
 		} else {
-			console.log ('to top')
 			showToTop()
 		}
 	}
 
 	lastScroll = scrollPosition();
 })
+
+
+// =========================================================== //
+// radio
+function radioCheck (input){
+	const radio = document.getElementById(input)
+	const allRadio = document.querySelectorAll('.radio')
+
+	if(radio.classList.contains("radio")){
+		//
+		allRadio.forEach(function (a){
+			let radioCont = radio.previousSibling
+			let radioContSib = radioCont.previousSibling
+			let labelCont_  = a.previousSibling
+			let labelSib_ = labelCont_.previousSibling
+
+			if (a.id !== input){
+				labelCont_.classList.remove ('checked')
+				labelSib_.classList.remove ('active')
+				//
+				radioCont.classList.add ('checked')
+				radioContSib.classList.add ('active')
+				//
+				a.checked = false
+			}
+		})
+	}
+
+}
